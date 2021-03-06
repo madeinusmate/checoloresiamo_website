@@ -24376,6 +24376,15 @@ pre>code.highlight {
         opacity: 0.5;
     }
 
+.ARANCIO-RAFFORZATO {
+        fill: #c26b00;
+    }
+
+    .ARANCIO-RAFFORZATO:hover {
+        cursor: pointer;
+        opacity: 0.5;
+    }
+
 
 
 .assistant-btn {

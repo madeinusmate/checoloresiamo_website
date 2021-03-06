@@ -7,7 +7,11 @@ coloreCell.forEach((cell, index) => {
   const regione = regioneID[index];
   var coloreURL= BaseURL + cell;
   $.ajax(coloreURL).done(function(result){
-               document.getElementById(regione).classList.add(result);;
+  if (result == "ARANCIO RAFFORZATO") {
+    document.getElementById(regione).classList.add("ARANCIO-RAFFORZATO");}
+    else {
+    document.getElementById(regione).classList.add(result);
+    }
 });
 })
 
