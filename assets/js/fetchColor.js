@@ -12,6 +12,9 @@ $.ajax(coloreURL).done(function(result){
     case "ARANCIO":
         document.getElementById('restrictions_orange').style.display = "inline";
         break;
+    case "ARANCIO RAFFORZATO":
+        document.getElementById('restrictions_orangeStrong').style.display = "inline";
+        break;
     case "ROSSO":
         document.getElementById('restrictions_red').style.display = "inline";
         break;
