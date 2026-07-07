@@ -37,34 +37,51 @@ const getRegionData = (data) => {
   return data.regions.find((region) => region.slug === slug) || null;
 };
 
-const applyColorRestrictions = (colore) => {
-  const restrictionIds = {
-    GIALLO: 'restrictions_yellow',
-    ARANCIO: 'restrictions_orange',
-    'ARANCIO RAFFORZATO': 'restrictions_orangeStrong',
-    ROSSO: 'restrictions_red',
-    BIANCO: 'restrictions_white',
-  };
+const renderRestrictionCard = (item, isWhiteZone) => {
+  const textClass = isWhiteZone ? 'text-black' : 'text-white';
+  const iconShapeClass = isWhiteZone ? 'icon-shape-black' : 'icon-shape-white';
 
-  const restrictionId = restrictionIds[colore];
-  if (restrictionId) {
-    const restrictionElement = document.getElementById(restrictionId);
-    if (restrictionElement) {
-      restrictionElement.style.display = 'block';
-    }
+  return `
+    <div class="col-md-4">
+      <div class="info">
+        <div class="icon icon-lg icon-shape ${iconShapeClass} shadow rounded-circle">
+          <i class="material-icons">${item.icon}</i>
+        </div>
+        <h6 class="info-title text-uppercase ${textClass}">${item.title}</h6>
+        <p class="description opacity-8 ${textClass}">${item.text}</p>
+      </div>
+    </div>
+  `;
+};
+
+const renderRestrictions = (colore, restrictionsByColor) => {
+  const items = restrictionsByColor[colore];
+  const restrictionsElement = document.getElementById('restrictions');
+
+  if (!restrictionsElement || !items) {
+    return;
   }
 
-  if (colore === 'BIANCO') {
-    document.getElementById('colore').classList.add('text-black');
-    document.getElementById('regione').classList.add('text-black');
-    document.getElementById('restrizioni-header').classList.add('text-black');
-    document.getElementById('logo').src = '../assets/img/brand/logo_black.png';
-    document.getElementById('navbar-main').classList.remove('navbar-transparent');
-    document.getElementById('navbar-main').classList.add('.bg-white');
-    document.getElementById('navbar-dropdown').style.color = 'black';
-  } else if (!restrictionId) {
-    console.log('error, no color defined, restrictions not displayed');
-  }
+  const isWhiteZone = colore === 'BIANCO';
+  const cards = items.map((item) => renderRestrictionCard(item, isWhiteZone)).join('');
+
+  restrictionsElement.innerHTML = `
+    <div class="container">
+      <div class="row">
+        ${cards}
+      </div>
+    </div>
+  `;
+};
+
+const applyWhiteZoneTheme = () => {
+  document.getElementById('colore').classList.add('text-black');
+  document.getElementById('regione').classList.add('text-black');
+  document.getElementById('restrizioni-header').classList.add('text-black');
+  document.getElementById('logo').src = '../assets/img/brand/logo_black.png';
+  document.getElementById('navbar-main').classList.remove('navbar-transparent');
+  document.getElementById('navbar-main').classList.add('.bg-white');
+  document.getElementById('navbar-dropdown').style.color = 'black';
 };
 
 const applyMapColor = (slug, colore) => {
@@ -100,7 +117,11 @@ const initRegionPage = () => {
     document.getElementById('regione').innerHTML = region.regione;
     document.getElementById('colore').innerHTML = region.colore;
     document.getElementById('body').style.backgroundColor = region.background;
-    applyColorRestrictions(region.colore);
+    renderRestrictions(region.colore, data.restrictions);
+
+    if (region.colore === 'BIANCO') {
+      applyWhiteZoneTheme();
+    }
   });
 };
 
@@ -120,9 +141,7 @@ const initHomePage = () => {
 };
 
 const bootRegionPage = () => {
-  $('#restrictions').load('../restrictions.html', () => {
-    initRegionPage();
-  });
+  initRegionPage();
   $('#footer').load('../footer_region.html', () => {
     initLastUpdate();
   });

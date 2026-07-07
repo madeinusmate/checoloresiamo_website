@@ -6,6 +6,71 @@
     "rosso": 2,
     "bianco": 1
   },
+  "restrictions": {
+    "BIANCO": [
+      {
+        "title": "Requisiti",
+        "icon": "analytics",
+        "text": "Incidenza settimanale inferiore a 50 casi ogni 100.000 abitanti per tre settimane consecutive."
+      },
+      {
+        "title": "Regole",
+        "icon": "masks",
+        "text": "Gran parte delle restrizioni standard venivano rimosse. Restavano obbligatori solo il distanziamento sociale e l'uso della mascherina."
+      }
+    ],
+    "GIALLO": [
+      {
+        "title": "Coprifuoco",
+        "icon": "https",
+        "text": "Divieto di circolazione dalle 22:00 alle 05:00."
+      },
+      {
+        "title": "Spostamenti",
+        "icon": "directions_car",
+        "text": "Consentiti all'interno della regione. Verso abitazioni private era possibile uno spostamento al giorno (max 2 persone oltre ai conviventi) tra le 05:00 e le 22:00."
+      },
+      {
+        "title": "Ristorazione",
+        "icon": "restaurant",
+        "text": "Bar e ristoranti aperti fino alle 18:00. Successivamente solo asporto (fino alle 22:00) o domicilio."
+      }
+    ],
+    "ARANCIO": [
+      {
+        "title": "Spostamenti",
+        "icon": "directions_car",
+        "text": "Vietato uscire dal proprio Comune. Consentite le visite a parenti/amici una volta al giorno solo all'interno del proprio Comune (limite 2 persone)."
+      },
+      {
+        "title": "Eccezione Comuni Piccoli",
+        "icon": "location_city",
+        "text": "Spostamenti dai comuni sotto i 5.000 abitanti consentiti entro 30 km, ma non verso i capoluoghi di provincia."
+      },
+      {
+        "title": "Ristorazione",
+        "icon": "restaurant",
+        "text": "Bar e ristoranti chiusi al pubblico. Solo asporto o consegna a domicilio."
+      }
+    ],
+    "ROSSO": [
+      {
+        "title": "Spostamenti",
+        "icon": "directions_car",
+        "text": "Vietato ogni spostamento anche all'interno del proprio Comune, salvo per lavoro, salute o necessità."
+      },
+      {
+        "title": "Visite Private",
+        "icon": "groups",
+        "text": "Dal 24 febbraio al 27 marzo 2021, in zona rossa non erano più consentite le visite ad amici o parenti in abitazioni private (lockdown totale)."
+      },
+      {
+        "title": "Attività Commerciale",
+        "icon": "store",
+        "text": "Sospese tutte le attività al dettaglio, tranne alimentari, farmacie e generi di prima necessità."
+      }
+    ]
+  },
   "regions": [
     { "row": 1, "slug": "abruzzo", "regione": "Abruzzo", "colore": "ARANCIO", "background": "#FF8C00" },
     { "row": 2, "slug": "basilicata", "regione": "Basilicata", "colore": "ROSSO", "background": "#CC0000" },
