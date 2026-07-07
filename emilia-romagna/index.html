@@ -50,20 +50,10 @@
   <!-- CSS Files -->
     <link href="../assets/css/argon-design-system.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
-  <!-- Define gdoc cells -->
-  <script>
-    var regioneCell="A5"
-    var coloreCell="B5"
-    var backgroundCell="C5"
-</script>
-  <!--   Core JS Files   -->
+<!--   Core JS Files   -->
     <script src="../assets/js/core/jquery.min.js" type="text/javascript"></script>
-    <script src="../assets/js/fetchBackground.js" type="text/javascript"></script>
-
-    <script src="../assets/js/fetchColor.js" type="text/javascript"></script>
-  <script src="../assets/js/fetchRegion.js" type="text/javascript"></script>
-    <script src="../assets/js/lastUpdate.js" type="text/javascript"></script>
-    <script src="../assets/js/core/popper.min.js" type="text/javascript"></script>
+    <script src="../assets/js/dataApi.js" type="text/javascript"></script>
+<script src="../assets/js/core/popper.min.js" type="text/javascript"></script>
     <script src="../assets/js/core/bootstrap.min.js" type="text/javascript"></script>
     <script src="../assets/js/plugins/perfect-scrollbar.jquery.min.js"></script>
 
@@ -175,16 +165,10 @@ $('.landing-page').hide()
     <link rel="stylesheet" type="text/css" href="../assets/css/purecookie.css" async />
     <script src="../assets/js/purecookie.js" async></script>
 
-    <div id="assistant"></div></body>
+    <div id="assistant"></div>
 <script>
-
-$("#footer").load("../footer_region.html");
-$("#restrictions").load("../restrictions.html");
-$("#assistant").load("../assistant.html");
-$('.landing-page').each(function() {
-
-$(this).delay(800).fadeIn(500);
-});
-  </script>
+bootRegionPage();
+</script>
+</body>
 
 </html>

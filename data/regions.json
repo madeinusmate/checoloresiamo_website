@@ -1,0 +1,97 @@
+{
+  "last_update": "7 Luglio 2026",
+  "counts": {
+    "giallo": 8,
+    "arancio": 10,
+    "rosso": 2,
+    "bianco": 1
+  },
+  "restrictions": {
+    "BIANCO": [
+      {
+        "title": "Requisiti",
+        "icon": "analytics",
+        "text": "Incidenza settimanale inferiore a 50 casi ogni 100.000 abitanti per tre settimane consecutive."
+      },
+      {
+        "title": "Regole",
+        "icon": "masks",
+        "text": "Gran parte delle restrizioni standard venivano rimosse. Restavano obbligatori solo il distanziamento sociale e l'uso della mascherina."
+      }
+    ],
+    "GIALLO": [
+      {
+        "title": "Coprifuoco",
+        "icon": "https",
+        "text": "Divieto di circolazione dalle 22:00 alle 05:00."
+      },
+      {
+        "title": "Spostamenti",
+        "icon": "directions_car",
+        "text": "Consentiti all'interno della regione. Verso abitazioni private era possibile uno spostamento al giorno (max 2 persone oltre ai conviventi) tra le 05:00 e le 22:00."
+      },
+      {
+        "title": "Ristorazione",
+        "icon": "restaurant",
+        "text": "Bar e ristoranti aperti fino alle 18:00. Successivamente solo asporto (fino alle 22:00) o domicilio."
+      }
+    ],
+    "ARANCIO": [
+      {
+        "title": "Spostamenti",
+        "icon": "directions_car",
+        "text": "Vietato uscire dal proprio Comune. Consentite le visite a parenti/amici una volta al giorno solo all'interno del proprio Comune (limite 2 persone)."
+      },
+      {
+        "title": "Eccezione Comuni Piccoli",
+        "icon": "location_city",
+        "text": "Spostamenti dai comuni sotto i 5.000 abitanti consentiti entro 30 km, ma non verso i capoluoghi di provincia."
+      },
+      {
+        "title": "Ristorazione",
+        "icon": "restaurant",
+        "text": "Bar e ristoranti chiusi al pubblico. Solo asporto o consegna a domicilio."
+      }
+    ],
+    "ROSSO": [
+      {
+        "title": "Spostamenti",
+        "icon": "directions_car",
+        "text": "Vietato ogni spostamento anche all'interno del proprio Comune, salvo per lavoro, salute o necessità."
+      },
+      {
+        "title": "Visite Private",
+        "icon": "groups",
+        "text": "Dal 24 febbraio al 27 marzo 2021, in zona rossa non erano più consentite le visite ad amici o parenti in abitazioni private (lockdown totale)."
+      },
+      {
+        "title": "Attività Commerciale",
+        "icon": "store",
+        "text": "Sospese tutte le attività al dettaglio, tranne alimentari, farmacie e generi di prima necessità."
+      }
+    ]
+  },
+  "regions": [
+    { "row": 1, "slug": "abruzzo", "regione": "Abruzzo", "colore": "ARANCIO", "background": "#FF8C00" },
+    { "row": 2, "slug": "basilicata", "regione": "Basilicata", "colore": "ROSSO", "background": "#CC0000" },
+    { "row": 3, "slug": "calabria", "regione": "Calabria", "colore": "GIALLO", "background": "#ffc100" },
+    { "row": 4, "slug": "campania", "regione": "Campania", "colore": "ARANCIO", "background": "#FF8C00" },
+    { "row": 5, "slug": "emilia-romagna", "regione": "Emilia-Romagna", "colore": "ARANCIO", "background": "#FF8C00" },
+    { "row": 6, "slug": "friuli-venezia-giulia", "regione": "Friuli-Venezia Giulia", "colore": "GIALLO", "background": "#ffc100" },
+    { "row": 7, "slug": "lazio", "regione": "Lazio", "colore": "GIALLO", "background": "#ffc100" },
+    { "row": 8, "slug": "liguria", "regione": "Liguria", "colore": "GIALLO", "background": "#ffc100" },
+    { "row": 9, "slug": "lombardia", "regione": "Lombardia", "colore": "ARANCIO", "background": "#FF8C00" },
+    { "row": 10, "slug": "marche", "regione": "Marche", "colore": "ARANCIO", "background": "#FF8C00" },
+    { "row": 11, "slug": "molise", "regione": "Molise", "colore": "ROSSO", "background": "#CC0000" },
+    { "row": 12, "slug": "piemonte", "regione": "Piemonte", "colore": "ARANCIO", "background": "#FF8C00" },
+    { "row": 13, "slug": "puglia", "regione": "Puglia", "colore": "GIALLO", "background": "#ffc100" },
+    { "row": 14, "slug": "sardegna", "regione": "Sardegna", "colore": "BIANCO", "background": "#FFFFFF" },
+    { "row": 15, "slug": "sicilia", "regione": "Sicilia", "colore": "GIALLO", "background": "#ffc100" },
+    { "row": 16, "slug": "toscana", "regione": "Toscana", "colore": "ARANCIO", "background": "#FF8C00" },
+    { "row": 17, "slug": "trentino-alto-adige-bolzano", "regione": "Trentino-Alto Adige (Bolzano)", "colore": "ARANCIO", "background": "#FF8C00" },
+    { "row": 18, "slug": "umbria", "regione": "Umbria", "colore": "ARANCIO", "background": "#FF8C00" },
+    { "row": 19, "slug": "valle-d-aosta", "regione": "Valle d'Aosta", "colore": "GIALLO", "background": "#ffc100" },
+    { "row": 20, "slug": "veneto", "regione": "Veneto", "colore": "GIALLO", "background": "#ffc100" },
+    { "row": 21, "slug": "trentino-alto-adige-trento", "regione": "Trentino-Alto Adige (Trento)", "colore": "ARANCIO", "background": "#FF8C00" }
+  ]
+}
