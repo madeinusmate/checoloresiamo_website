@@ -1,0 +1,32 @@
+{
+  "last_update": "7 Luglio 2026",
+  "counts": {
+    "giallo": 0,
+    "arancio": 0,
+    "rosso": 0,
+    "bianco": 21
+  },
+  "regions": [
+    { "slug": "abruzzo", "name": "Abruzzo", "color": "BIANCO", "background_color": "#FFFFFF" },
+    { "slug": "basilicata", "name": "Basilicata", "color": "BIANCO", "background_color": "#FFFFFF" },
+    { "slug": "calabria", "name": "Calabria", "color": "BIANCO", "background_color": "#FFFFFF" },
+    { "slug": "campania", "name": "Campania", "color": "BIANCO", "background_color": "#FFFFFF" },
+    { "slug": "emilia-romagna", "name": "Emilia-Romagna", "color": "BIANCO", "background_color": "#FFFFFF" },
+    { "slug": "friuli-venezia-giulia", "name": "Friuli-Venezia Giulia", "color": "BIANCO", "background_color": "#FFFFFF" },
+    { "slug": "lazio", "name": "Lazio", "color": "BIANCO", "background_color": "#FFFFFF" },
+    { "slug": "liguria", "name": "Liguria", "color": "BIANCO", "background_color": "#FFFFFF" },
+    { "slug": "lombardia", "name": "Lombardia", "color": "BIANCO", "background_color": "#FFFFFF" },
+    { "slug": "marche", "name": "Marche", "color": "BIANCO", "background_color": "#FFFFFF" },
+    { "slug": "molise", "name": "Molise", "color": "BIANCO", "background_color": "#FFFFFF" },
+    { "slug": "piemonte", "name": "Piemonte", "color": "BIANCO", "background_color": "#FFFFFF" },
+    { "slug": "puglia", "name": "Puglia", "color": "BIANCO", "background_color": "#FFFFFF" },
+    { "slug": "sardegna", "name": "Sardegna", "color": "BIANCO", "background_color": "#FFFFFF" },
+    { "slug": "sicilia", "name": "Sicilia", "color": "BIANCO", "background_color": "#FFFFFF" },
+    { "slug": "toscana", "name": "Toscana", "color": "BIANCO", "background_color": "#FFFFFF" },
+    { "slug": "trentino-alto-adige-bolzano", "name": "Trentino-Alto Adige (Bolzano)", "color": "BIANCO", "background_color": "#FFFFFF" },
+    { "slug": "umbria", "name": "Umbria", "color": "BIANCO", "background_color": "#FFFFFF" },
+    { "slug": "valle-d-aosta", "name": "Valle d'Aosta", "color": "BIANCO", "background_color": "#FFFFFF" },
+    { "slug": "veneto", "name": "Veneto", "color": "BIANCO", "background_color": "#FFFFFF" },
+    { "slug": "trentino-alto-adige-trento", "name": "Trentino-Alto Adige (Trento)", "color": "BIANCO", "background_color": "#FFFFFF" }
+  ]
+}
