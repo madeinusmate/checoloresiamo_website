@@ -35,7 +35,7 @@ const run = async () => {
         const regionReady = document.getElementById('regione')?.innerHTML === expectedRegione;
         const restrictionElement = document.getElementById(expectedRestrictionId);
         const restrictionReady = restrictionElement
-          && getComputedStyle(restrictionElement).display === 'inline';
+          && getComputedStyle(restrictionElement).display === 'block';
         return regionReady && restrictionReady;
       },
       [test.regione, restrictionId],
@@ -53,7 +53,7 @@ const run = async () => {
     const passed = result.regione === test.regione
       && result.colore === test.colore
       && result.background === test.background
-      && result.activeRestriction === 'inline'
+      && result.activeRestriction === 'block'
       && result.update === '7 Luglio 2026';
 
     console.log(`\n${test.path}`);
@@ -61,7 +61,7 @@ const run = async () => {
     console.log('  colore:', result.colore, result.colore === test.colore ? 'OK' : 'FAIL');
     console.log('  background:', result.background, result.background === test.background ? 'OK' : 'FAIL');
     console.log('  update:', result.update, result.update === '7 Luglio 2026' ? 'OK' : 'FAIL');
-    console.log('  active restriction:', result.activeRestriction, result.activeRestriction === 'inline' ? 'OK' : 'FAIL');
+    console.log('  active restriction:', result.activeRestriction, result.activeRestriction === 'block' ? 'OK' : 'FAIL');
 
     if (!passed) {
       process.exitCode = 1;

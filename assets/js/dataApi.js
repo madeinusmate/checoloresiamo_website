@@ -38,31 +38,32 @@ const getRegionData = (data) => {
 };
 
 const applyColorRestrictions = (colore) => {
-  switch (colore) {
-    case 'GIALLO':
-      document.getElementById('restrictions_yellow').style.display = 'inline';
-      break;
-    case 'ARANCIO':
-      document.getElementById('restrictions_orange').style.display = 'inline';
-      break;
-    case 'ARANCIO RAFFORZATO':
-      document.getElementById('restrictions_orangeStrong').style.display = 'inline';
-      break;
-    case 'ROSSO':
-      document.getElementById('restrictions_red').style.display = 'inline';
-      break;
-    case 'BIANCO':
-      document.getElementById('restrictions_white').style.display = 'inline';
-      document.getElementById('colore').classList.add('text-black');
-      document.getElementById('regione').classList.add('text-black');
-      document.getElementById('restrizioni-header').classList.add('text-black');
-      document.getElementById('logo').src = '../assets/img/brand/logo_black.png';
-      document.getElementById('navbar-main').classList.remove('navbar-transparent');
-      document.getElementById('navbar-main').classList.add('.bg-white');
-      document.getElementById('navbar-dropdown').style.color = 'black';
-      break;
-    default:
-      console.log('error, no color defined, restrictions not displayed');
+  const restrictionIds = {
+    GIALLO: 'restrictions_yellow',
+    ARANCIO: 'restrictions_orange',
+    'ARANCIO RAFFORZATO': 'restrictions_orangeStrong',
+    ROSSO: 'restrictions_red',
+    BIANCO: 'restrictions_white',
+  };
+
+  const restrictionId = restrictionIds[colore];
+  if (restrictionId) {
+    const restrictionElement = document.getElementById(restrictionId);
+    if (restrictionElement) {
+      restrictionElement.style.display = 'block';
+    }
+  }
+
+  if (colore === 'BIANCO') {
+    document.getElementById('colore').classList.add('text-black');
+    document.getElementById('regione').classList.add('text-black');
+    document.getElementById('restrizioni-header').classList.add('text-black');
+    document.getElementById('logo').src = '../assets/img/brand/logo_black.png';
+    document.getElementById('navbar-main').classList.remove('navbar-transparent');
+    document.getElementById('navbar-main').classList.add('.bg-white');
+    document.getElementById('navbar-dropdown').style.color = 'black';
+  } else if (!restrictionId) {
+    console.log('error, no color defined, restrictions not displayed');
   }
 };
 
@@ -115,5 +116,18 @@ const initHomePage = () => {
     document.getElementById('countBianco').innerHTML = data.counts.bianco;
 
     initLastUpdate();
+  });
+};
+
+const bootRegionPage = () => {
+  $('#restrictions').load('../restrictions.html', () => {
+    initRegionPage();
+  });
+  $('#footer').load('../footer_region.html', () => {
+    initLastUpdate();
+  });
+  $('#assistant').load('../assistant.html');
+  $('.landing-page').each(function() {
+    $(this).delay(800).fadeIn(500);
   });
 };

@@ -173,19 +173,7 @@ $('.landing-page').hide()
 </body>
 <script>
 
-$("#footer").load("../footer_region.html");r
-$.when(
-  $("#footer").load("../footer_region.html"),
-  $("#restrictions").load("../restrictions.html")
-).done(() => {
-  initRegionPage();
-  initLastUpdate();
-});
-$("#assistant").load("../assistant.html");
-$('.landing-page').each(function() {
-
-$(this).delay(800).fadeIn(500);
-});
+bootRegionPage();
   </script>
 
 
