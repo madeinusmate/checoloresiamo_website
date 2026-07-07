@@ -11,23 +11,30 @@ const restrictionIdByColor = {
 };
 
 const regionTests = [
-  { path: '/lombardia/', regione: 'Lombardia', colore: 'GIALLO', background: 'rgb(255, 193, 0)' },
-  { path: '/piemonte/', regione: 'Piemonte', colore: 'ROSSO', background: 'rgb(204, 0, 0)' },
-  { path: '/lazio/', regione: 'Lazio', colore: 'ARANCIO RAFFORZATO', background: 'rgb(194, 107, 0)' },
-  { path: '/veneto/', regione: 'Veneto', colore: 'BIANCO', background: 'rgb(255, 255, 255)' },
+  { path: '/lombardia/', regione: 'Lombardia', colore: 'ARANCIO', background: 'rgb(255, 140, 0)', text: 'Vietato uscire dal proprio Comune' },
+  { path: '/basilicata/', regione: 'Basilicata', colore: 'ROSSO', background: 'rgb(204, 0, 0)', text: 'lockdown totale' },
+  { path: '/calabria/', regione: 'Calabria', colore: 'GIALLO', background: 'rgb(255, 193, 0)', text: 'Divieto di circolazione dalle 22:00' },
+  { path: '/sardegna/', regione: 'Sardegna', colore: 'BIANCO', background: 'rgb(255, 255, 255)', text: 'distanziamento sociale' },
 ];
 
 const run = async () => {
   const browser = await chromium.launch();
   const page = await browser.newPage();
 
-  await page.goto(`${baseUrl}/lombardia/`);
-  await page.waitForTimeout(500);
+  await page.goto(`${baseUrl}/`);
+  await page.waitForFunction(() => document.getElementById('countGiallo')?.innerHTML === '8');
+  const home = await page.evaluate(() => ({
+    giallo: document.getElementById('countGiallo')?.innerHTML,
+    arancio: document.getElementById('countArancio')?.innerHTML,
+    rosso: document.getElementById('countRosso')?.innerHTML,
+    bianco: document.getElementById('countBianco')?.innerHTML,
+    lombardiaClass: document.getElementById('lombardia')?.getAttribute('class'),
+    moliseClass: document.getElementById('molise')?.getAttribute('class'),
+  }));
+  console.log('Home counts:', home);
 
   for (const test of regionTests) {
-    if (test.path !== '/lombardia/') {
-      await page.goto(`${baseUrl}${test.path}`);
-    }
+    await page.goto(`${baseUrl}${test.path}`);
     const restrictionId = restrictionIdByColor[test.colore];
 
     await page.waitForFunction(
@@ -47,21 +54,20 @@ const run = async () => {
       colore: document.getElementById('colore')?.innerHTML,
       background: getComputedStyle(document.getElementById('body')).backgroundColor,
       activeRestriction: getComputedStyle(document.getElementById(activeRestrictionId)).display,
-      update: document.getElementById('update')?.innerHTML,
+      restrictionText: document.getElementById(activeRestrictionId)?.innerText || '',
     }), restrictionId);
 
     const passed = result.regione === test.regione
       && result.colore === test.colore
       && result.background === test.background
       && result.activeRestriction === 'block'
-      && result.update === '7 Luglio 2026';
+      && result.restrictionText.includes(test.text);
 
     console.log(`\n${test.path}`);
-    console.log('  regione:', result.regione, passed ? 'OK' : 'FAIL');
+    console.log('  regione:', result.regione, result.regione === test.regione ? 'OK' : 'FAIL');
     console.log('  colore:', result.colore, result.colore === test.colore ? 'OK' : 'FAIL');
     console.log('  background:', result.background, result.background === test.background ? 'OK' : 'FAIL');
-    console.log('  update:', result.update, result.update === '7 Luglio 2026' ? 'OK' : 'FAIL');
-    console.log('  active restriction:', result.activeRestriction, result.activeRestriction === 'block' ? 'OK' : 'FAIL');
+    console.log('  restriction text:', result.restrictionText.includes(test.text) ? 'OK' : 'FAIL');
 
     if (!passed) {
       process.exitCode = 1;
