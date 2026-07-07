@@ -54,11 +54,7 @@
 <!--   Core JS Files   -->
     <script src="../assets/js/core/jquery.min.js" type="text/javascript"></script>
     <script src="../assets/js/dataApi.js" type="text/javascript"></script>
-    <script src="../assets/js/fetchBackground.js" type="text/javascript"></script>
-    <script src="../assets/js/fetchColor.js" type="text/javascript"></script>
-  <script src="../assets/js/fetchRegion.js" type="text/javascript"></script>
-    <script src="../assets/js/lastUpdate.js" type="text/javascript"></script>
-    <script src="../assets/js/core/popper.min.js" type="text/javascript"></script>
+<script src="../assets/js/core/popper.min.js" type="text/javascript"></script>
     <script src="../assets/js/core/bootstrap.min.js" type="text/javascript"></script>
     <script src="../assets/js/plugins/perfect-scrollbar.jquery.min.js"></script>
 
@@ -178,7 +174,13 @@ $('.landing-page').hide()
 <script>
 
 $("#footer").load("../footer_region.html");r
-$("#restrictions").load("../restrictions.html");
+$.when(
+  $("#footer").load("../footer_region.html"),
+  $("#restrictions").load("../restrictions.html")
+).done(() => {
+  initRegionPage();
+  initLastUpdate();
+});
 $("#assistant").load("../assistant.html");
 $('.landing-page').each(function() {
 

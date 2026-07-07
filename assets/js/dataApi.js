@@ -37,8 +37,8 @@ const getRegionData = (data) => {
   return data.regions.find((region) => region.slug === slug) || null;
 };
 
-const applyColorRestrictions = (color) => {
-  switch (color) {
+const applyColorRestrictions = (colore) => {
+  switch (colore) {
     case 'GIALLO':
       document.getElementById('restrictions_yellow').style.display = 'inline';
       break;
@@ -66,16 +66,54 @@ const applyColorRestrictions = (color) => {
   }
 };
 
-const applyMapColor = (slug, color) => {
+const applyMapColor = (slug, colore) => {
   const element = document.getElementById(slug);
   if (!element) {
     return;
   }
 
-  if (color === 'ARANCIO RAFFORZATO') {
+  if (colore === 'ARANCIO RAFFORZATO') {
     element.classList.add('ARANCIO-RAFFORZATO');
     return;
   }
 
-  element.classList.add(color);
+  element.classList.add(colore);
+};
+
+const initLastUpdate = () => {
+  fetchData().done((data) => {
+    const updateElement = document.getElementById('update');
+    if (updateElement) {
+      updateElement.innerHTML = data.last_update;
+    }
+  });
+};
+
+const initRegionPage = () => {
+  fetchData().done((data) => {
+    const region = getRegionData(data);
+    if (!region) {
+      return;
+    }
+
+    document.getElementById('regione').innerHTML = region.regione;
+    document.getElementById('colore').innerHTML = region.colore;
+    document.getElementById('body').style.backgroundColor = region.background;
+    applyColorRestrictions(region.colore);
+  });
+};
+
+const initHomePage = () => {
+  fetchData().done((data) => {
+    data.regions.forEach((region) => {
+      applyMapColor(region.slug, region.colore);
+    });
+
+    document.getElementById('countGiallo').innerHTML = data.counts.giallo;
+    document.getElementById('countArancio').innerHTML = data.counts.arancio;
+    document.getElementById('countRosso').innerHTML = data.counts.rosso;
+    document.getElementById('countBianco').innerHTML = data.counts.bianco;
+
+    initLastUpdate();
+  });
 };
